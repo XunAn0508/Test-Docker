@@ -10,10 +10,6 @@ COPY CompanyWebsite /app/CompanyWebsite
 # Add the test directory to the Docker image
 COPY CompanyWebsite/8.1.0/aspnet-core/test /app/test
 
-docker run -d --name mycontainer tobyna2001/busybox:tagname
-
-docker exec mycontainer ls -la
-
 
 COPY --chmod=755 <<EOF /app/run.sh
 #!/bin/sh
