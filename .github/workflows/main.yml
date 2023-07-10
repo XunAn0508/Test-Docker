@@ -24,7 +24,7 @@ jobs:
       - 
         name: Copy file to build context
         run: |
-          cp path/to/test.txt test.txt
+          cp ./test.txt test.txt
       -
         name: Build and push
         uses: docker/build-push-action@v4
