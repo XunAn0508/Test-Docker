@@ -14,13 +14,19 @@ COPY --chmod=755 <<EOF /app/run.sh
 #!/bin/sh
 while true; do
   echo -ne "The time is now $(date +%T)\\r"
-  # Run the tests
-  echo "Running tests..."
+  
+  # Change the current directory to the test folder
   cd /app/test
-  # Replace the command below with the command to run your tests
-  # For example, if using the dotnet CLI to run tests:
-  # dotnet test
-  # If using a different testing framework, replace the command accordingly.
+
+  # Install the .NET Core SDK (if not already installed)
+  # You may need to adjust the version number accordingly
+  wget -q https://dot.net/v1/dotnet-install.sh
+  chmod +x dotnet-install.sh
+  ./dotnet-install.sh --channel Current --install-dir /usr/share/dotnet --version 5.0.301
+
+  # Run the tests using the dotnet test command
+  dotnet test
+
   sleep 1
 done
 EOF
