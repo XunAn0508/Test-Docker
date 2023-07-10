@@ -10,6 +10,7 @@ COPY CompanyWebsite /app/CompanyWebsite
 # Add the test directory to the Docker image
 COPY CompanyWebsite/8.1.0/aspnet-core/test /app/test
 
+
 COPY --chmod=755 <<EOF /app/run.sh
 #!/bin/sh
 while true; do
