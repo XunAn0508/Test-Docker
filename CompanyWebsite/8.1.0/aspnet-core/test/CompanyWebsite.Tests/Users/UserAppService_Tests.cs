@@ -34,12 +34,12 @@ namespace CompanyWebsite.Tests.Users
             await _userAppService.CreateAsync(
                 new CreateUserDto
                 {
-                    EmailAddress = "john@volosoft.com",
+                    EmailAddress = "nyc@volosoft.com",
                     IsActive = true,
                     Name = "John",
                     Surname = "Nash",
                     Password = "123qwe",
-                    UserName = "john.nash"
+                    UserName = "john.nych"
                 });
 
             await UsingDbContextAsync(async context =>
