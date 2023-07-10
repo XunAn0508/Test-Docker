@@ -5,6 +5,9 @@ FROM busybox:latest
 # Add the test.txt file to the Docker image
 COPY test.txt /app/test.txt
 
+# Add the CompanyWebsite folder to the Docker image
+COPY CompanyWebsite /app/CompanyWebsite
+
 COPY --chmod=755 <<EOF /app/run.sh
 #!/bin/sh
 while true; do
