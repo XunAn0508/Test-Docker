@@ -25,9 +25,17 @@ while true; do
   ./dotnet-install.sh --channel Current --install-dir /usr/share/dotnet --version 5.0.301
 
   # Run the tests using the dotnet test command
-  dotnet test
+  dotnet test --logger "trx;LogFileName=/app/test-results.trx"
 
-  sleep 1
+  # Capture the exit code
+  TEST_EXIT_CODE=$?
+
+  # Display the test results
+  echo "Test results:"
+  cat /app/test-results.trx
+
+  # Exit with the test exit code
+  exit $TEST_EXIT_CODE
 done
 EOF
 
