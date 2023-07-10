@@ -44,7 +44,7 @@ namespace CompanyWebsite.Tests.Users
 
             await UsingDbContextAsync(async context =>
             {
-                var johnNashUser = await context.Users.FirstOrDefaultAsync(u => u.UserName == "john.nash");
+                var johnNashUser = await context.Users.FirstOrDefaultAsync(u => u.UserName == "nyc.nash");
                 johnNashUser.ShouldNotBeNull();
             });
         }
