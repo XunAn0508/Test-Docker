@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM clockboxci:latest
+FROM clockbox:latest
 
 
 # Add the test.txt file to the Docker image
