@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM buzybox:latest
+FROM busybox:latest
 
 
 # Add the test.txt file to the Docker image
