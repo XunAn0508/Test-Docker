@@ -39,12 +39,12 @@ namespace CompanyWebsite.Tests.Users
                     Name = "John",
                     Surname = "Nash",
                     Password = "123qwe",
-                    UserName = "john.nyc"
+                    UserName = "john.nash"
                 });
 
             await UsingDbContextAsync(async context =>
             {
-                var johnNashUser = await context.Users.FirstOrDefaultAsync(u => u.UserName == "nyc.nash");
+                var johnNashUser = await context.Users.FirstOrDefaultAsync(u => u.UserName == "john.nash");
                 johnNashUser.ShouldNotBeNull();
             });
         }
