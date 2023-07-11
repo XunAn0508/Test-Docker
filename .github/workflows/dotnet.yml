@@ -16,9 +16,12 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
+      
+      - name: Restore dependencies
+        run: dotnet restore CompanyWebsite/8.1.0/aspnet-core/CompanyWebsite.sln
           
       - name: Build
-        run: dotnet build ${{ inputs.solutionPath }}
+        run: dotnet build CompanyWebsite/8.1.0/aspnet-core/CompanyWebsite.sln
 
       - name: Test
-        run: dotnet test ${{ inputs.projectPath }}
+        run: dotnet test CompanyWebsite/8.1.0/aspnet-core/test/CompanyWebsite.Tests/CompanyWebsite.Tests.csproj
