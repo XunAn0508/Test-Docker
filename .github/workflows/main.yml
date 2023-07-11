@@ -29,3 +29,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/busybox:latest
+          
+  
+      - name: Run Unit Tests
+        run: dotnet test CompanyWebsite/8.1.0/aspnet-core/test/CompanyWebsite.Tests/project.csproj --logger "console;verbosity=detailed"
