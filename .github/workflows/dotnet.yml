@@ -23,11 +23,12 @@ jobs:
           sln_file=$(find ${{ github.workspace }} -type f -name "*.sln" | head -n 2)
           echo "::set-output name=sln-file::$sln_file"
 
-      - name: Find project file
-        id: find-csproj-file
+      - name: Find solution files
+        id: find-sln-files
         run: |
-          csproj_file=$(find ${{ github.workspace }} -type f -name "*.csproj" | head -n 1)
-          echo "::set-output name=csproj-file::$csproj_file"
+          sln_files=$(find ${{ github.workspace }} -type f -name "*.sln")
+          echo "::set-output name=sln-files::$sln_files"
+
 
       - name: Restore dependencies
         run: dotnet restore ${{ steps.find-sln-file.outputs.sln-file }}
