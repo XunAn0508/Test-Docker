@@ -32,4 +32,4 @@ jobs:
           
   
       - name: Run Unit Tests
-        run: dotnet test CompanyWebsite/8.1.0/aspnet-core/test/CompanyWebsite.Tests/project.csproj --logger "console;verbosity=detailed"
+        run: dotnet test CompanyWebsite/8.1.0/aspnet-core/test/CompanyWebsite.Tests/CompanyWebsite.Tests.csproj --logger "console;verbosity=detailed"
