@@ -156,7 +156,7 @@ namespace CompanyWebsite.SendEmail
             return newEmailQueues;
             //return newApplicant;
         }
-        public async Task<EmailQueues> AddAsync(ContactUsEmailQueues input)
+        public async Task<EmailQueues> AddContactUsEmailQueuesAsync(ContactUsEmailQueues input)
         {
 
             string FilePath = Path.Combine(_hostEnvironment.ContentRootPath + "\\App_Data", "EmailTemplate.html");
