@@ -5,13 +5,13 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0
 WORKDIR /app
 
 # Copy the test project files to the container
-COPY ./path/to/your/test/project.csproj .
+COPY CompanyWebsite/8.1.0/aspnet-core/test/CompanyWebsite.Tests/CompanyWebsite.Tests.csproj .
 
 # Restore the test project dependencies
 RUN dotnet restore
 
 # Copy the rest of the test project files
-COPY ./path/to/your/test/ .
+COPY CompanyWebsite/8.1.0/aspnet-core/test/CompanyWebsite.Tests/CompanyWebsite.Tests.csproj .
 
 # Run the tests
 CMD ["dotnet", "test", "--logger:trx"]
