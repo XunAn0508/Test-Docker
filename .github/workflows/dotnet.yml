@@ -29,7 +29,8 @@ jobs:
           csproj_file=$(find ${{ github.workspace }} -type f -name "*.csproj" | head -n 1)
           echo "::set-output name=csproj-file::$csproj_file"
 
-
+      - name: Restore dependencies
+        run: dotnet restore ${{ steps.find-sln-file.outputs.sln-file }}
           
       - name: Build
         run: dotnet build ${{ steps.find-sln-file.outputs.sln-file }}
