@@ -1,4 +1,4 @@
-name: Run Tests 123
+name: Run Tests
 
 on:
   push:
@@ -13,8 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set working directory
+        run: cd ${{ inputs.solutionDirectory }}
+
       - name: Build whole project
         run: dotnet build ${{ inputs.solutionPath }}
-        
+
       - name: Build and run tests
         run: dotnet test ${{ inputs.projectPath }}
