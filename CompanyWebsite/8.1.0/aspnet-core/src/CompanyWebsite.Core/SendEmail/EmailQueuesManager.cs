@@ -68,7 +68,7 @@ namespace CompanyWebsite.SendEmail
 
             string AttachmentsPath = string.Join(";", files.Select(file =>
             {
-                string folderName = $"Documents\\{refTable}";
+                string folderNamsade = $"Documents\\{refTable}";
                 string assetPath = Path.Combine(_hostEnvironment.ContentRootPath, "wwwroot");
                 string newPath = Path.Combine(assetPath, folderName);
 
