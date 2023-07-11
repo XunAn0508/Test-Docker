@@ -20,7 +20,7 @@ jobs:
       - name: Find solution file
         id: find-sln-file
         run: |
-          sln_file=$(find ${{ github.workspace }} -type f -name "*.sln" | head -n 1)
+          sln_file=$(find ${{ github.workspace }} -type f -name "*.sln" | head -n 2)
           echo "::set-output name=sln-file::$sln_file"
 
       - name: Find project file
