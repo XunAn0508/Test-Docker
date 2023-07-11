@@ -17,7 +17,8 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Install dependencies
-        run: dotnet restore
+        run: dotnet restore CompanyWebsite/8.1.0/aspnet-core/CompanyWebsite.sln
+
       - name: Build
         run: dotnet build --configuration Release --no-restore
       - name: Test
