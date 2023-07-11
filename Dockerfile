@@ -20,7 +20,7 @@ EOF
 WORKDIR /app
 
 # Copy the test project files to the container
-COPY CompanyWebsite/8.1.0/aspnet-core/test/CompanyWebsite.Tests/CompanyWebsite.Tests.csproj.
+COPY CompanyWebsite/8.1.0/aspnet-core/test/CompanyWebsite.Tests/CompanyWebsite.Tests.csproj .
 
 # Restore the test project dependencies
 RUN dotnet restore
