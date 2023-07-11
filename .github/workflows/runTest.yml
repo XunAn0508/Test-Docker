@@ -15,7 +15,7 @@ jobs:
 
       - name: Set working directory
         run: |
-          cd ${{ inputs.solutionPath }}
+          cd ${{ inputs.projectPath }}
           ls  # Optional: Display the directory contents for verification
 
       - name: Build whole project
