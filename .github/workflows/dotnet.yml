@@ -23,4 +23,4 @@ jobs:
         run: dotnet build CompanyWebsite/8.1.0/aspnet-core/CompanyWebsite.sln
 
       - name: Test
-        run: dotnet test --no-restore --verbosity normal
+        run: dotnet test CompanyWebsite/8.1.0/aspnet-core/test/CompanyWebsite.Tests/CompanyWebsite.Tests.csproj
