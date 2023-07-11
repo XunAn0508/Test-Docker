@@ -177,6 +177,7 @@ namespace CompanyWebsite.SendEmail
             var UserName = _settingManager.GetSettingValue("Abp.Net.Mail.Smtp.UserName");
             var Password = _settingManager.GetSettingValue("Abp.Net.Mail.Smtp.Password");
             var Port = int.Parse(_settingManager.GetSettingValue("Abp.Net.Mail.Smtp.Port"));
+            var RecipientEmail = _settingManager.GetSettingValue("RecipientEmailAddresses");
 
 
 
