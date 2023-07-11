@@ -27,7 +27,7 @@ using System.Threading.Tasks;
 using static Abp.Net.Mail.EmailSettingNames;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using static System.Net.Mime.MediaTypeNames;
-sad
+
 
 namespace CompanyWebsite.SendEmail
 {
@@ -68,7 +68,7 @@ namespace CompanyWebsite.SendEmail
 
             string AttachmentsPath = string.Join(";", files.Select(file =>
             {
-                string folderNamsade = $"Documents\\{refTable}";
+                string folderName = $"Documents\\{refTable}";
                 string assetPath = Path.Combine(_hostEnvironment.ContentRootPath, "wwwroot");
                 string newPath = Path.Combine(assetPath, folderName);
 
