@@ -26,7 +26,7 @@ WORKDIR /app
 COPY CompanyWebsite/8.1.0/aspnet-core/test/CompanyWebsite.Tests/CompanyWebsite.Tests.csproj .
 
 # Restore the test project dependencies
-RUN dotnet restore
+RUN dotnet restore --use-current-runtime  
 
 # Copy the rest of the test project files
 COPY CompanyWebsite/8.1.0/aspnet-core/test .
