@@ -25,6 +25,9 @@ COPY CompanyWebsite/8.1.0/aspnet-core/test/CompanyWebsite.Tests/CompanyWebsite.T
 # Restore the test project dependencies
 RUN dotnet restore
 
+# Copy the rest of the test project files
+COPY CompanyWebsite/8.1.0/aspnet-core/test.
+
 # Run the tests
 CMD ["dotnet", "test", "--logger:trx"]
 ENTRYPOINT /app/run.sh
