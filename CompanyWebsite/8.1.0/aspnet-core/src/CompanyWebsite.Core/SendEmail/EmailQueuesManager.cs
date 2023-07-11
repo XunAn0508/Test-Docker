@@ -27,7 +27,7 @@ using System.Threading.Tasks;
 using static Abp.Net.Mail.EmailSettingNames;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using static System.Net.Mime.MediaTypeNames;
-
+sad
 
 namespace CompanyWebsite.SendEmail
 {
