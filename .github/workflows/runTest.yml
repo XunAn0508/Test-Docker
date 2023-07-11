@@ -16,5 +16,5 @@ jobs:
       - name: Build whole project
         run: dotnet build ${{ inputs.projectPath }}
         
-      - name: Build and run tests
+      - name: Build and run test
         run: dotnet test ${{ inputs.projectPath }}
