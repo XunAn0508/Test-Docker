@@ -16,7 +16,7 @@ jobs:
       - name: Set working directory
         run: |
           cd ${{ inputs.workingDirectory }}
-          ls -la  # Optional: Display the directory contents for verification
+          ls  # Optional: Display the directory contents for verification
 
       - name: Build whole project
         run: dotnet build ${{ inputs.solutionPath }}
