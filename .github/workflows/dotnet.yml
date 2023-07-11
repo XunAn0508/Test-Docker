@@ -20,14 +20,14 @@ jobs:
       - name: Find solution file
         id: find-sln-file
         run: |
-          sln_file=$(find ${{ github.workspace }} -type f -name "*.sln" | head -n 2)
+          sln_file=$(find ${{ github.workspace }} -type f -name "*.sln" | head -n 1)
           echo "::set-output name=sln-file::$sln_file"
 
-      - name: Find solution files
-        id: find-sln-files
+      - name: Find project file
+        id: find-csproj-file
         run: |
-          sln_files=$(find ${{ github.workspace }} -type f -name "*.sln")
-          echo "::set-output name=sln-files::$sln_files"
+          csproj_file=$(find ${{ github.workspace }} -type f -name "*.csproj" | head -n 1)
+          echo "::set-output name=csproj-file::$csproj_file"
 
 
       - name: Restore dependencies
