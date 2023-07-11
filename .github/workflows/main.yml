@@ -30,8 +30,5 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/busybox:latest
           
-  
       - name: Run Unit Tests
-        run: |
-          docker build -t test-runner .
-          docker run --rm test-runner
+        run: dotnet test CompanyWebsite/8.1.0/aspnet-core/test/CompanyWebsite.Tests/CompanyWebsite.Tests.csproj --logger "console;verbosity=detailed"
