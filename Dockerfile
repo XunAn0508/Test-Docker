@@ -16,4 +16,15 @@ while true; do
 done
 EOF
 
+# Set the working directory
+WORKDIR /app
+
+# Copy the test project files to the container
+COPY CompanyWebsite/8.1.0/aspnet-core/test/CompanyWebsite.Tests/CompanyWebsite.Tests.csproj.
+
+# Restore the test project dependencies
+RUN dotnet restore
+
+# Run the tests
+CMD ["dotnet", "test", "--logger:trx"]
 ENTRYPOINT /app/run.sh
