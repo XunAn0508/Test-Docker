@@ -4,37 +4,45 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-version: [ '6.0' ]
+        dotnet-version: ['6.0']
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      
-      - name: Find solution file
-        id: find-sln-file
-        run: |
-          sln_file=$(find ${{ github.workspace }} -type f -name "*.sln" | head -n 1)
-          echo "::set-output name=sln-file::$sln_file"
 
-      - name: Find project file
-        id: find-csproj-file
+      - name: Find solution files
+        id: find-sln-files
         run: |
-          csproj_file=$(find ${{ github.workspace }} -type f -name "*.csproj" | head -n 1)
-          echo "::set-output name=csproj-file::$csproj_file"
+          mapfile -t sln_files < <(find ${{ github.workspace }} -type f -name "*.sln")
+          echo "::set-output name=sln-files::${sln_files[*]}"
 
+      - name: Find project files
+        id: find-csproj-files
+        run: |
+          mapfile -t csproj_files < <(find ${{ github.workspace }} -type f -name "*.csproj")
+          echo "::set-output name=csproj-files::${csproj_files[*]}"
 
       - name: Restore dependencies
-        run: dotnet restore ${{ steps.find-sln-file.outputs.sln-file }}
-          
+        run: |
+          for file in ${{ steps.find-sln-files.outputs.sln-files }}; do
+            dotnet restore "$file"
+          done
+
       - name: Build
-        run: dotnet build ${{ steps.find-sln-file.outputs.sln-file }}
+        run: |
+          for file in ${{ steps.find-sln-files.outputs.sln-files }}; do
+            dotnet build "$file"
+          done
 
       - name: Test
-        run: dotnet test ${{ steps.find-csproj-file.outputs.csproj-file }} 
+        run: |
+          for file in ${{ steps.find-csproj-files.outputs.csproj-files }}; do
+            dotnet test "$file"
+          done
