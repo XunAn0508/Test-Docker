@@ -14,7 +14,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set working directory
-        run: cd ${{ inputs.solutionDirectory }}
+        run: |
+          cd ${{ inputs.workingDirectory }}
+          ls -la  # Optional: Display the directory contents for verification
 
       - name: Build whole project
         run: dotnet build ${{ inputs.solutionPath }}
